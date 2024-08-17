@@ -4,8 +4,8 @@ const usersRoutes = require('./users.js');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const app = express();
-app.use(express.json());
-//app.use(bodyParser.json());
+//app.use(express.json());
+app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', usersRoutes);
 //app.use(cookieParser());
@@ -16,7 +16,7 @@ app.use((req, res, next) => {
     next();
 });
 
-const allowedOrigins = require('./allowedOrigins')
+const allowedOrigins = require('./allowedOrigins.js')
 
 const corsOptions = {
     origin: (origin, callback) => {
