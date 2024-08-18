@@ -5,7 +5,6 @@ const dbClient = require('./dbClient.js');
 router.get('/users', (req, res) => {
     dbClient.query('SELECT * FROM users', (err, result) => {
         if (!err) {
-            // res.header('Access-Control-Allow-Origin', '*');
             res.send(result.rows);
         }
     });
@@ -15,7 +14,6 @@ router.get('/users', (req, res) => {
 router.get('/users/:username', (req, res) => {
     dbClient.query(`SELECT * FROM users WHERE username='${req.params.username}'`, (err, result) => {
         if (!err) {
-            // res.header('Access-Control-Allow-Origin', '*');
             res.send(result.rows);
         }
     });
@@ -26,7 +24,6 @@ router.get('/user', (req, res) => {
     console.log(req.body);
     dbClient.query(`SELECT * FROM users WHERE username='${req.body.username}'`, (err, result) => {
         if (!err) {
-            // res.header('Access-Control-Allow-Origin', '*');
             res.send(result.rows);
         }
     });

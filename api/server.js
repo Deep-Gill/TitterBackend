@@ -9,9 +9,10 @@ app.use(bodyParser.json());
 //app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/', usersRoutes);
 //app.use(cookieParser());
+app.use(cors());
 app.use((req, res, next) => {
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     res.header('Access-Control-Allow-Headers', '*');
     next();
 });
